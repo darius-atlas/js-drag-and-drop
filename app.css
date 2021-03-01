@@ -1,0 +1,124 @@
+/*	Initialization	*/
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+body {
+	background: dimgray;
+}
+
+hr {
+	margin-top: 7px;
+	margin-bottom: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
+
+
+/*	Blocks	*/
+
+.renderContainer {
+	width: 100%;
+	height: auto;
+	padding-top: 2px solid black;
+	display: flex;
+	flex-direction: row;
+  	justify-content: flex-start;
+}
+
+.card {
+	width: 200;
+	height: 8%;
+	border-radius: 13px;
+	border: dotted 3px white;
+	margin: 20px;
+}
+
+.cardAdd {
+	width: 20%;
+	height: 8%;
+	border-radius: 13px;
+	margin: 20px;
+}
+
+.cardAdd {
+	border: dotted 3px white;
+	text-align: center;
+	transition-duration: 1s;
+}
+
+.cardAdd:hover, .cardAdd:focus {
+	transform: scale(1.1);
+	background-color: aqua;
+	border: solid 3px white;
+}
+
+.cardAdd:active {
+	border: dotted 3px aqua;
+}
+
+.cardAdd p {
+	margin-top: 4%;
+	font-style: bold;
+	font-size: 2rem;
+	color: white;
+	user-select: none;
+}
+
+
+
+
+/*	Modal	*/
+
+.modal-atlas {
+	height: 100%; width: 100%;
+	background-color: black;
+}
+
+.content-modal {
+	width: 300px; height: 400px;
+	margin-left: 40%;
+	margin-top: 50px;
+	border: 2px solid black;
+	border-radius: 12px;
+	padding: 10px;
+	background-color: dimgray;
+}
+
+
+
+
+/*	elements	*/
+
+.btn-danger {
+	text: white;
+	background-color: red;
+}
+
+.btn-success {
+	text: black;
+	background-color: green;
+}
+
+.btn {
+	border: white 1px solid;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.w-50 {
+	width: 47%;
+}

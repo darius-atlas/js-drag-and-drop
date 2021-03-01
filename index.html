@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./app.css">
+	<title>Tobby clone</title>
+</head>
+<body>
+	<div class="modal-atlas" style="display: none;" id="modalItem0">
+		<div class="content-modal bg-danger conteiner">
+			<div class="row">
+				<div class="col-lg-12">
+					<p align="center" id="ModalTitle">Add a New Block</p>
+					<hr>
+
+					<input type="name" id="inputNameBlock" class="input" name="" placeholder="Enter name of block here">
+
+					<button type="button" onClick="modalin()" class="btn btn-danger w-50">Close Modal</button>
+					<button type="button" id="contextModalButton" onClick="addNewBlock()" class="btn btn-success w-50">Add aNew Block</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="renderContainer" id="renderBlock">
+	
+	</div>
+	<script type="text/javascript" src="./main.js"></script>
+</body>
+</html>
