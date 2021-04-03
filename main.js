@@ -9,6 +9,25 @@ function addNewBlock() {
 	modalin();
 }
 
+
+// Drag and Drop
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.currentTarget.id);
+}
+
+function drop(ev, thisId) {
+    ev.preventDefault();
+    var foregroundBlockIdData = ev.dataTransfer.getData("text");
+    swapBlock(foregroundBlockIdData, thisId);
+}
+
+
+
 function swapBlock(foregroundBlockId, backgroundBlocId) {
 	swapArray(htmlContent, foregroundBlockId, backgroundBlocId);
 	render(makeStringFromArray(htmlContent));
@@ -17,7 +36,16 @@ function swapBlock(foregroundBlockId, backgroundBlocId) {
 function makeStringFromArray(array) {
 	var content = htmlContentAddNew;
 	for (let i = 1; i < array.length; i++) {
-	  content = content + '<div class="card"><p>' + array[i] + '</p><div style="display: flex;"><a href="#" class="btn" onClick="openModalForEditTheBlock(' + i + ')">Edit</a></div></div>';
+	  content = content + 
+	  '<div class="card" draggable="true" id="' + i + '" ondragstart="drag(event)" ondrop="drop(event, ' + i + ')" ondragover="allowDrop(event)">' + 
+	  	'<div class="card-scroll">' + 
+	  		'<p>' + array[i] + '</p>' + 
+	  	'</div>' +
+	  	'<div class="card-button" style="display: flex;">' + 
+	  		'<a href="#" class="btn btn-block" onClick="openModalForEditTheBlock(' + i + ')">Edit</a>' + 
+	  		'<a href="#" class="btn btn-block" onClick="openModalViaDeliteBlockById(' + i + ')">Delete</a>' + 
+	  	'</div>' + 
+	  '</div>';
 	}
 	return content;
 }
@@ -44,6 +72,14 @@ function editBlockByArrayId(id) {
 }
 
 
+function deleteBlockByArrayId(id) {
+	htmlContent.splice(id, 1);
+
+	render(makeStringFromArray(htmlContent));
+	modalin();
+}
+
+
 
 
 var modalStatus = false;
@@ -64,6 +100,12 @@ function openModalForAddNewBlock() {
 function openModalForEditTheBlock(id) {
 	setContextForModal("Edit the Block", "Save Changes", htmlContent[id]);
 	document.getElementById("contextModalButton").setAttribute("onClick", "editBlockByArrayId(" + id +")");
+	modalin();
+}
+
+function openModalViaDeliteBlockById(id) {
+	setContextForModal("Are you realy wont to delte this block?", "Yes, delete this!", null);
+	document.getElementById("contextModalButton").setAttribute("onClick", "deleteBlockByArrayId(" + id +")");
 	modalin();
 }
 
